@@ -33,7 +33,7 @@ function FormDialog({ open, state }: propsDialogAddItem) {
     const classes = useStyles();
 
     const [name, setName] = useState<string>('');
-    const [date, setDate] = useState<string>('');
+    const [date, setDate] = useState<string>('2000/01/01');
     const [salary, setSalary] = useState<number>(0);
     const [position, setPosition] = useState<string>('');
     const [openAlert, setOpenAlert] = useState(false);
