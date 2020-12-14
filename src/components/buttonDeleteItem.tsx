@@ -7,7 +7,7 @@ import { propsButtonDelete } from '../config/types'
 
 
 
-export default (props: propsButtonDelete) => {
+const ButtonDeleteItem = (props: propsButtonDelete) => {
 
     return (
         <Button
@@ -20,3 +20,5 @@ export default (props: propsButtonDelete) => {
         </Button>
     );
 }
+
+export default ButtonDeleteItem;

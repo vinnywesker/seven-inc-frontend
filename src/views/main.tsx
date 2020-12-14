@@ -2,9 +2,11 @@ import React from 'react';
 
 import ViewItems from '../components/viewItems';
 import MenuBar from '../components/menuBar';
-import { useItems } from '../services/itemsContext'
+import { useItems } from '../services/itemsContext';
 
-export default () => {
+
+
+const Main = () => {
 
     const { employeesList } = useItems();
 
@@ -15,3 +17,5 @@ export default () => {
         </>
     );
 }
+
+export default Main;

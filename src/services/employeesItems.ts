@@ -1,5 +1,4 @@
 import Axios from './axios';
-import moment from 'moment'
 
 import { insertItemsParams, resultRows, propsLoadEmployees } from '../config/types';
 

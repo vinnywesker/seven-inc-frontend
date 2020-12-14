@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function FormDialog({ open, state }: propsDialogAddItem) {
+function FormDialog({ open, state }: propsDialogAddItem) {
     const classes = useStyles();
 
     const [name, setName] = useState<string>('');
@@ -123,3 +123,4 @@ export default function FormDialog({ open, state }: propsDialogAddItem) {
         </div>
     );
 }
+export default FormDialog;

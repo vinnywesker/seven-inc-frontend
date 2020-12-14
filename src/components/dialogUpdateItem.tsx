@@ -29,14 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const getDate = (date: Date | null): string | null => {
-    if (date) {
-        const result = date.toString().split('/');
-        return `${result[2]}-${result[1]}-${result[0]}`
-    }
-    else return null;
-}
-
 export default function FormDialog({ data, open, state }: propsDialogUpdateItems) {
 
     const classes = useStyles();

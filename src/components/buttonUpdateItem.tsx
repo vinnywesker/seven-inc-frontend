@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default (props: propsButtonDelete) => {
+const ButtonUpdateItem = (props: propsButtonDelete) => {
     const classes = useStyles();
 
     return (
@@ -29,3 +29,4 @@ export default (props: propsButtonDelete) => {
         </Button>
     );
 }
+export default ButtonUpdateItem;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { makeStyles, Theme } from '@material-ui/core/styles';
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-export default ({ children, time, type, open, state }: propsAlertBar) => {
+const AlertBar = ({ children, time, type, open, state }: propsAlertBar) => {
     const classes = useStyles();
 
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
@@ -35,3 +35,5 @@ export default ({ children, time, type, open, state }: propsAlertBar) => {
         </div>
     );
 }
+
+export default AlertBar;
