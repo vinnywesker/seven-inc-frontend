@@ -70,7 +70,7 @@ export interface propsDialogAddItem {
 
 export interface insertItemsParams {
     name: string;
-    bornDate: Date | null;
+    bornDate: string | null;
     salary: number;
     position: string;
 }

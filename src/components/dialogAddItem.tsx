@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import moment from 'moment';
 
 import { insertItem } from '../services/employeesItems';
 import AlertBar from './alertBar';
@@ -32,7 +33,7 @@ export default function FormDialog({ open, state }: propsDialogAddItem) {
     const classes = useStyles();
 
     const [name, setName] = useState<string>('');
-    const [date, setDate] = useState<Date>(new Date('2000/01/01'));
+    const [date, setDate] = useState<string>('');
     const [salary, setSalary] = useState<number>(0);
     const [position, setPosition] = useState<string>('');
     const [openAlert, setOpenAlert] = useState(false);
@@ -43,7 +44,7 @@ export default function FormDialog({ open, state }: propsDialogAddItem) {
     }
 
     const handleInsert = () => {
-        if (!name || !salary || !position) { alert("Nenhum campo pode ficar vazio."); return; }
+        if (!name || !salary || !position || (date.length < 10 || date === 'Invalid date')) { alert("Nenhum campo pode ficar vazio."); return; }
         state(false);
         insertItem({ name: name, bornDate: date, salary: salary, position: position })
             .then(response => {
@@ -87,8 +88,7 @@ export default function FormDialog({ open, state }: propsDialogAddItem) {
                             shrink: true,
                         }}
                         onChange={(e) => {
-                            const parse = e.target.value.split('-');
-                            setDate(new Date(`${parse[0]}/${parse[1]}/${parse[2]}`));
+                            setDate(moment(e.target.value).format('YYYY/MM/DD'));
                         }}
                     />
                     <TextField

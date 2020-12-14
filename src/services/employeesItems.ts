@@ -33,11 +33,9 @@ export const loadEmployees = async ({ setEmployeesList, setLoading }: propsLoadE
     getItems()
         .then(response => {
             const data = response.data.map((result: resultRows) => {
-                const dataFormat = moment(result.bornDate).format('DD/MM/YYYY')
                 return {
                     id: result._id,
-                    ...result,
-                    bornDate: dataFormat
+                    ...result
                 }
             })
             setEmployeesList(data);

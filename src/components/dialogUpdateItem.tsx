@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import moment from 'moment';
 
 import { updateItem } from '../services/employeesItems';
 import AlertBar from './alertBar';
@@ -43,7 +44,7 @@ export default function FormDialog({ data, open, state }: propsDialogUpdateItems
     const { setEmployeesList, setLoading } = useItems();
 
     const [name, setName] = useState<string | null>(null);
-    const [date, setDate] = useState<Date | null>(null);
+    const [date, setDate] = useState<string>('');
     const [salary, setSalary] = useState<number | null>(null);
     const [position, setPosition] = useState<string | null>(null);
     const [openAlert, setOpenAlert] = useState(false);
@@ -60,7 +61,7 @@ export default function FormDialog({ data, open, state }: propsDialogUpdateItems
     }, [data]);
 
     const handleUpdate = () => {
-        if (!name || !salary || !position) { alert("Nenhum campo pode ficar vazio."); return; }
+        if (!name || !salary || !position || (date.length < 10 || date === 'Invalid date')) { alert("Nenhum campo pode ficar vazio."); return; }
         state(false);
         updateItem(data.id, { name: name, bornDate: date, salary: salary, position: position })
             .then(response => {
@@ -99,14 +100,13 @@ export default function FormDialog({ data, open, state }: propsDialogUpdateItems
                         id="date"
                         label="Data de nascimento"
                         type="date"
-                        defaultValue={getDate(date)}
+                        defaultValue={moment(date).format('YYYY-MM-DD')}
                         className={classes.textField}
                         InputLabelProps={{
                             shrink: true,
                         }}
                         onChange={(e) => {
-                            const parse = e.target.value.split('-');
-                            setDate(new Date(`${parse[0]}/${parse[1]}/${parse[2]}`));
+                            setDate(moment(e.target.value).format('YYYY/MM/DD'));
                         }}
                     />
                     <TextField
