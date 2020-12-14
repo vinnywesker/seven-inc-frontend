@@ -2,7 +2,7 @@
 ANTES DE INICIAR, PARA FACILITAR EU JÁ EFETUEI O DEPLOY DA APLICAÇÃO (FRONT E BACK), EM UMA MAQUINA NA AWS, SEGUE OS LINKS:
 
 
-FRONTEND: http://ec2-18-228-117-122.sa-east-1.compute.amazonaws.com:3000
+FRONTEND: http://ec2-18-228-117-122.sa-east-1.compute.amazonaws.com:5000
 
 BACKEND: http://ec2-18-228-117-122.sa-east-1.compute.amazonaws.com:3030/employees  (somente com autenticação)
 
